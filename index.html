@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Math Master - Free Mathematics Questions & Solutions</title>
+    <meta name="description" content="Free JEE Main and Advanced Mathematics questions with detailed solutions. Practice thousands of problems without buying any books.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .question-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .topic-btn {
+            margin: 0.25rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .topic-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .difficulty-easy { border-left: 4px solid var(--success-color); }
+        .difficulty-medium { border-left: 4px solid var(--warning-color); }
+        .difficulty-hard { border-left: 4px solid var(--danger-color); }
+
+        .solution-section {
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .progress-ring {
+            width: 60px;
+            height: 60px;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: -3rem auto 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 0;
+            }
+            .search-container {
+                margin: -2rem 1rem 2rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" aria-label="JEE Math Master Home">
+                <i class="fas fa-calculator me-2"></i>JEE Math Master
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#practice">Practice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#topics">Topics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mock-tests">Mock Tests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#progress">Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light btn-sm ms-2" onclick="showLogin()" aria-label="Login">Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Master JEE Mathematics</h1>
+            <p class="lead mb-4">Thousands of JEE Main & Advanced questions with detailed solutions - Completely FREE!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <div class="text-center">
+                            <h3 class="fw-bold">5000+</h3>
+                            <small>Questions</small>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="fw-bold">15+</h3>
+                            <small>Topics</small>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="fw-bold">100%</h3>
+                            <small>Free</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container">
+        <div class="search-container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Search questions by topic or keyword..." aria-label="Search questions">
+                        <button class="btn btn-primary" type="button" onclick="searchQuestions()" aria-label="Search questions">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3 mt-md-0">
+                    <div class="d-flex flex-wrap gap-2">
+                        <select class="form-select" id="topicFilter" aria-label="Filter by topic">
+                            <option value="">All Topics</option>
+                            <option value="algebra">Algebra</option>
+                            <option value="calculus">Calculus</option>
+                            <option value="coordinate-geometry">Coordinate Geometry</option>
+                            <option value="trigonometry">Trigonometry</option>
+                            <option value="probability">Probability</option>
+                        </select>
+                        <select class="form-select" id="difficultyFilter" aria-label="Filter by difficulty">
+                            <option value="">All Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topics Section -->
+    <section id="topics" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Choose Your Topic</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-square-root-alt fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Algebra</h5>
+                            <p class="card-text">Quadratic equations, sequences, complex numbers</p>
+                            <button class="btn btn-primary" onclick="loadTopic('algebra')">Practice Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Calculus</h5>
+                            <p class="card-text">Limits, derivatives, integrals</p>
+                            <button class="btn btn-success" onclick="loadTopic('calculus')">Practice Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-drafting-compass fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Coordinate Geometry</h5>
+                            <p class="card-text">Lines, circles, parabolas, ellipses</p>
+                            <button class="btn btn-warning" onclick="loadTopic('coordinate-geometry')">Practice Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-wave-square fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Trigonometry</h5>
+                            <p class="card-text">Ratios, identities, equations</p>
+                            <button class="btn btn-info" onclick="loadTopic('trigonometry')">Practice Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-dice fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">Probability</h5>
+                            <p class="card-text">Permutations, combinations, probability</p>
+                            <button class="btn btn-danger" onclick="loadTopic('probability')">Practice Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shapes fa-3x text-secondary mb-3"></i>
+                            <h5 class="card-title">Matrices</h5>
+                            <p class="card-text">Determinants, inverse, operations</p>
+                            <button class="btn btn-secondary" onclick="loadTopic('matrices')">Practice Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5">Practice Questions</h2>
+            <div id="questionsContainer">
+                <!-- Questions will be loaded here -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary btn-lg" onclick="loadMoreQuestions()">Load More Questions</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mock Tests Section -->
+    <section id="mock-tests" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Mock Tests</h2>
+            <p class="text-center lead">Mock tests are coming soon! Practice full-length JEE-style exams to boost your preparation.</p>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Your Progress</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <i class="fas fa-question-circle fa-2x text-primary mb-2"></i>
+                        <h4 id="totalAttempted">0</h4>
+                        <small class="text-muted">Questions Attempted</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                        <h4 id="totalCorrect">0</h4>
+                        <small class="text-muted">Correct Answers</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <i class="fas fa-percentage fa-2x text-warning mb-2"></i>
+                        <h4 id="accuracy">0%</h4>
+                        <small class="text-muted">Accuracy</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <i class="fas fa-fire fa-2x text-danger mb-2"></i>
+                        <h4 id="streak">0</h4>
+                        <small class="text-muted">Day Streak</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>JEE Math Master</h5>
+                    <p>Your free companion for JEE Mathematics preparation. No books required!</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">About Us</a></li>
+                        <li><a href="#" class="text-light">Contact</a></li>
+                        <li><a href="#" class="text-light">Privacy Policy</a></li>
+                        <li><a href="#" class="text-light">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>© <script>document.write(new Date().getFullYear())</script> JEE Math Master. Made with ❤️ for JEE Aspirants</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Global questions array
+        let questionsDatabase = [];
+
+        // User progress tracking
+        let userProgress = {
+            attempted: 0,
+            correct: 0,
+            streak: 0,
+            topics: {}
+        };
+
+        // Fetch questions from JSON file
+        async function fetchQuestions() {
+            try {
+                const response = await fetch('questions.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load questions');
+                }
+                questionsDatabase = await response.json();
+                return questionsDatabase;
+            } catch (error) {
+                console.error('Error loading questions:', error);
+                document.getElementById('questionsContainer').innerHTML = 
+                    '<div class="text-center"><p class="lead text-danger">Failed to load questions. Please try again later.</p></div>';
+                return [];
+            }
+        }
+
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('jeeProgress');
+            if (saved) {
+                userProgress = JSON.parse(saved);
+                updateProgressDisplay();
+            }
+        }
+
+        // Save progress
+        function saveProgress() {
+            localStorage.setItem('jeeProgress', JSON.stringify(userProgress));
+        }
+
+        // Update streak
+        function updateStreak() {
+            const today = new Date().toDateString();
+            const lastActivity = localStorage.getItem('lastActivity');
+            if (lastActivity !== today) {
+                userProgress.streak = lastActivity === new Date(Date.now() - 86400000).toDateString() 
+                    ? userProgress.streak + 1 
+                    : 1;
+                localStorage.setItem('lastActivity', today);
+            }
+        }
+
+        // Update progress display
+        function updateProgressDisplay() {
+            document.getElementById('totalAttempted').textContent = userProgress.attempted;
+            document.getElementById('totalCorrect').textContent = userProgress.correct;
+            document.getElementById('accuracy').textContent = 
+                userProgress.attempted > 0 ? Math.round((userProgress.correct / userProgress.attempted) * 100) + '%' : '0%';
+            document.getElementById('streak').textContent = userProgress.streak;
+        }
+
+        // Load questions by topic
+        function loadTopic(topic) {
+            const filteredQuestions = questionsDatabase.filter(q => q.topic === topic);
+            displayQuestions(filteredQuestions);
+            document.getElementById('practice').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Search questions
+        function searchQuestions() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const topicFilter = document.getElementById('topicFilter').value;
+            const difficultyFilter = document.getElementById('difficultyFilter').value;
+
+            let filteredQuestions = questionsDatabase.filter(q => {
+                const matchesSearch = searchTerm === '' || 
+                    q.question.toLowerCase().includes(searchTerm) ||
+                    q.topic.toLowerCase().includes(searchTerm);
+                const matchesTopic = topicFilter === '' || q.topic === topicFilter;
+                const matchesDifficulty = difficultyFilter === '' || q.difficulty === difficultyFilter;
+                
+                return matchesSearch && matchesTopic && matchesDifficulty;
+            });
+
+            displayQuestions(filteredQuestions);
+            document.getElementById('practice').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Display questions
+        function displayQuestions(questions) {
+            const container = document.getElementById('questionsContainer');
+            if (questions.length === 0) {
+                container.innerHTML = '<div class="text-center"><p class="lead">No questions found. Try different filters.</p></div>';
+                return;
+            }
+
+            container.innerHTML = questions.map(q => `
+                <div class="card question-card difficulty-${q.difficulty}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="badge bg-primary me-2">${q.topic.charAt(0).toUpperCase() + q.topic.slice(1).replace('-', ' ')}</span>
+                                <span class="badge bg-${getDifficultyColor(q.difficulty)}">${q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1)}</span>
+                            </div>
+                            <div class="text-end">
+                                <small class="text-muted">${q.examType.join(', ')}</small><br>
+                                <small class="text-muted">${q.year}</small>
+                            </div>
+                        </div>
+                        
+                        <div class="question-text mb-3">
+                            <h6>Question ${q.id}:</h6>
+                            <p class="math-content">${q.question}</p>
+                        </div>
+                        
+                        <div class="options mb-3">
+                            ${q.options.map((option, index) => `
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="question${q.id}" id="q${q.id}_${index}" value="${index}" aria-labelledby="label${q.id}_${index}">
+                                    <label class="form-check-label math-content" id="label${q.id}_${index}" for="q${q.id}_${index}">
+                                        ${String.fromCharCode(65 + index)}. ${option}
+                                    </label>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button class="btn btn-outline-primary" onclick="checkAnswer(${q.id})" aria-label="Check answer for question ${q.id}">Check Answer</button>
+                            <button class="btn btn-outline-secondary" onclick="toggleSolution(${q.id})" aria-label="Show solution for question ${q.id}">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </button>
+                        </div>
+                        
+                        <div id="result${q.id}" class="mt-3" style="display: none;"></div>
+                        <div id="solution${q.id}" class="solution-section">
+                            <h6><i class="fas fa-lightbulb text-warning"></i> Solution:</h6>
+                            <div class="math-content">${q.solution}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Re-render MathJax
+            if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+                window.MathJax.startup.promise.then(() => {
+                    window.MathJax.typesetPromise();
+                });
+            }
+        }
+
+        // Get difficulty color
+        function getDifficultyColor(difficulty) {
+            switch(difficulty) {
+                case 'easy': return 'success';
+                case 'medium': return 'warning';
+                case 'hard': return 'danger';
+                default: return 'secondary';
+            }
+        }
+
+        // Check answer
+        function checkAnswer(questionId) {
+            const question = questionsDatabase.find(q => q.id === questionId);
+            const selectedOption = document.querySelector(`input[name="question${questionId}"]:checked`);
+            const resultDiv = document.getElementById(`result${questionId}`);
+            
+            if (!selectedOption) {
+                resultDiv.innerHTML = '<div class="alert alert-warning">Please select an answer!</div>';
+                resultDiv.style.display = 'block';
+                return;
+            }
+
+            const selectedValue = parseInt(selectedOption.value);
+            const isCorrect = selectedValue === question.correctAnswer;
+            
+            // Update progress
+            userProgress.attempted++;
+            userProgress.topics[question.topic] = userProgress.topics[question.topic] || { attempted: 0, correct: 0 };
+            userProgress.topics[question.topic].attempted++;
+            if (isCorrect) {
+                userProgress.correct++;
+                userProgress.topics[question.topic].correct++;
+            }
+            updateStreak();
+            saveProgress();
+            updateProgressDisplay();
+
+            // Show result
+            const correctOption = String.fromCharCode(65 + question.correctAnswer);
+            const selectedOptionLetter = String.fromCharCode(65 + selectedValue);
+            
+            if (isCorrect) {
+                resultDiv.innerHTML = `
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle"></i> Correct! Well done!
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-times-circle"></i> Incorrect. You selected ${selectedOptionLetter}, but the correct answer is ${correctOption}.
+                    </div>
+                `;
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+
+        // Toggle solution
+        function toggleSolution(questionId) {
+            const solutionDiv = document.getElementById(`solution${questionId}`);
+            if (solutionDiv.style.display === 'block') {
+                solutionDiv.style.display = 'none';
+            } else {
+                solutionDiv.style.display = 'block';
+                // Re-render MathJax for the solution
+                if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+                    window.MathJax.startup.promise.then(() => {
+                        window.MathJax.typesetPromise([solutionDiv]);
+                    });
+                }
+            }
+        }
+
+        // Load more questions
+        function loadMoreQuestions() {
+            displayQuestions(questionsDatabase);
+        }
+
+        // Show login modal (placeholder)
+        function showLogin() {
+            alert('Login feature coming soon! For now, your progress is saved locally.');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', async function() {
+            loadProgress();
+            
+            // Load questions and initialize display
+            await fetchQuestions();
+            
+            // Wait for MathJax to be ready before displaying questions
+            if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+                window.MathJax.startup.promise.then(() => {
+                    displayQuestions(questionsDatabase.slice(0, 3));
+                });
+            } else {
+                // Fallback if MathJax isn't loaded
+                setTimeout(() => {
+                    displayQuestions(questionsDatabase.slice(0, 3));
+                }, 1000);
+            }
+            
+            // Add search on Enter key
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchQuestions();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
